@@ -1,0 +1,4 @@
+#!/bin/bash
+set -eu
+
+docker build --build-arg VIVLIOSTYLE_VERSION=2018.12.103 -t $IMAGE_NAME .
