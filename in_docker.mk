@@ -39,7 +39,7 @@ html:
 	@$(MAKE) status_check -f in_docker.mk --no-print-directory
 
 pdf: html
-	node docker_env/pdf.js $(PDF) $(HTML_URL) $(PAGE_FORMAT)
+	node ./scripts/pdf.js $(PDF) $(HTML_URL) $(PAGE_FORMAT)
 
 # ===================================================
 # lint
