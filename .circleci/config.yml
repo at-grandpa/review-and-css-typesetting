@@ -1,0 +1,39 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: atgrandpa/review-and-css-typesetting:0.1.0
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - npm-cache-{{ checksum "package-lock.json" }}--bundler-cache-{{ checksum "Gemfile.lock" }}
+          paths:
+            - ./node_modules
+            - ./vendor
+      - run:
+          name: setup npm
+          command: |
+            make setup_npm -f in_docker.mk
+      - run:
+          name: setup bundler
+          command: |
+            make setup_bundler -f in_docker.mk
+      - save_cache:
+          key: npm-cache-{{ checksum "package-lock.json" }}--bundler-cache-{{ checksum "Gemfile.lock" }}
+          paths:
+            - ./node_modules
+            - ./vendor
+      - run:
+          name: run lint
+          command: |
+            make lint -f in_docker.mk
+      - run:
+          name: build pdf
+          command: |
+            chmod +x ./docker_env/startup.sh
+            ./docker_env/startup.sh &
+            make pdf -f in_docker.mk
+      - store_artifacts:
+          path: ./articles/book.pdf
+          destination: book.pdf

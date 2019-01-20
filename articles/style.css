@@ -1,0 +1,1167 @@
+body {
+    page-break-before: left;
+    counter-reset: footnote;
+    font-family: "IPAmjMincho";
+}
+
+:root {
+    font-weight: 400;
+    line-height: 1.65em;
+    padding-top: 1.5rem;
+}
+
+/* 大扉 */
+
+section#s_book {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 40px;
+    vertical-align: middle;
+}
+
+section#s_book h1.cover-title,
+section#s_book h2.cover-subtitle,
+section#s_book h2.cover-author,
+section#s_book h3.cover-publisher {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateY(-50%) translateX(-50%);
+    -webkit-transform: translateY(-50%) translateX(-50%);
+}
+
+section#s_book h1.cover-title {
+    top: 20%;
+}
+
+section#s_book h2.cover-subtitle {
+    width: 500px;
+    top: 25%;
+}
+
+section#s_book h2.cover-author {
+    width: 500px;
+    top: 30%;
+}
+
+section#s_book h3.cover-publisher {
+    width: 500px;
+    top: 35%;
+}
+
+/* 目次のページ数 */
+
+nav a:after {
+    content: target-counter(attr(href), page);
+    float: right;
+}
+
+/* 目次周りの水平線 */
+
+nav li a {
+    display: flex;
+    align-items: center;
+}
+
+nav li a span {
+    border-top: 1px dotted;
+    flex-grow: 1;
+    margin-left: 1.0em;
+    margin-right: 1.0em;
+}
+
+/* A5設定 */
+
+:root {
+    font-size: 10pt;
+}
+
+ul:not([class^="toc"]):not(li ul),
+ol:not([class^="toc"]):not(li ul) {
+    margin: 15px 15px 15px 0px;
+}
+
+li ul {
+    margin: 0px;
+}
+
+ul[class^="toc"],
+ol[class^="toc"] {
+    list-style-type: none;
+}
+
+a {
+    text-decoration: none;
+    /* font-style: italic; */
+}
+
+/* 部のデザイン */
+
+section[id^="s_part"] {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 40px;
+    vertical-align: middle;
+}
+
+section[id^="s_part"] h1,
+section[id^="s_part"] h2,
+section[id^="s_part"] p,
+section[id^="s_part"] div.image {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateY(-50%) translateX(-50%);
+    -webkit-transform: translateY(-50%) translateX(-50%);
+}
+
+section[id^="s_part"] h1 {
+    color: #1e1e1e;
+    padding: 0.5em 0;
+    border-top: solid 3px #1e1e1e;
+    border-bottom: solid 3px #1e1e1e;
+    top: 25%;
+}
+
+section[id^="s_part"] h2 {
+    top: 20%;
+}
+
+section[id^="s_part"] p {
+    width: 500px;
+    top: 40%;
+}
+
+section[id^="s_part"] div.image {
+    top: 60%;
+}
+
+/* 見出し */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    break-after: avoid;
+}
+
+a:link,
+a:visited {
+    color: black;
+}
+
+#s_book,
+.titlepage,
+.part {
+    text-align: center;
+}
+
+.titlepage>h1 {
+    font-size: 2.5rem;
+}
+
+.titlepage>.author {
+    font-size: 2rem;
+}
+
+.colophon-page>.colophon {
+    text-align: right;
+}
+
+.colophon-page>.colophon>h1 {
+    font-size: 1.8rem;
+}
+
+.colophon-page>.colophon>hr {
+    width: 50%;
+    margin-right: 0;
+    border: 1px solid black;
+}
+
+/* 見出しデザイン */
+
+h1:not(.cover-title):not(.tp-title):not(.part-number):not(section[id^="s_part"] h1) {
+    position: relative;
+    background: #ebebeb;
+    padding: 0.1em 0em 0.1em 0.8em;
+    margin: 0.67em 0em 1.1em 0.67em;
+    font-size: 2.0em;
+    color: #242424;
+    border-radius: 0em 0.5em 0.5em 0em;
+    height: 1.3em;
+    line-height: 1.4em;
+    string-set: xxx content(text);
+    -webkit-string-set: xxx content(text);
+    -moz-string-set: xxx content(text);
+}
+
+h1:not(.cover-title):not(.tp-title):not(.part-number):not(section[id^="s_part"] h1):before {
+    font-family: "FontAwesome";
+    font-size: 1.0em;
+    content: '\f02d';
+    display: inline-block;
+    line-height: 1.8em;
+    position: absolute;
+    padding: 0em;
+    color: white;
+    background: #636363;
+    font-weight: normal;
+    width: 1.8em;
+    text-align: center;
+    height: 1.8em;
+    left: -1.35em;
+    top: 50%;
+    -moz-transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    border-radius: 50%;
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.29);
+}
+
+h2:not(.cover-subtitle):not(.cover-author):not(.part-title):not(section[id^="s_part"] h2) {
+    padding: 0.25em 0.5em;
+    color: #242424;
+    background: transparent;
+    border-left: solid 10px #919191;
+    border-bottom: solid 1px #919191;
+}
+
+h3:not(.cover-publisher) {
+    display: inline-block;
+    border-bottom: dotted 2px #7b7b7b;
+    margin: 1.0em 0em;
+    color: #242424;
+}
+
+section {
+    break-before: page;
+    break-after: page;
+}
+
+nav {
+    break-before: page;
+    break-after: page;
+}
+
+aside {
+    break-before: page;
+    break-after: page;
+}
+
+p.footnote {
+    float: footnote;
+}
+
+a.noteref {
+    vertical-align: super;
+}
+
+nav.toc a::after {
+    content: target-counter(attr(href), page);
+    float: right;
+}
+
+p {
+    text-indent: 1rem;
+    text-align: justify;
+    margin-top: 0.3rem;
+    margin-bottom: 0;
+}
+
+/* .image */
+
+p.caption {
+    text-align: center;
+    text-indent: 0;
+    color: gray;
+}
+
+.emlist-code {
+    margin: 15px 0px;
+}
+
+/* list, emlist, tableのキャプションは左寄せ */
+
+.caption-code p.caption,
+.emlist-code p.caption {
+    text-align: start;
+}
+
+p.caption::before {
+    color: gray;
+    content: "▲";
+}
+
+div.table {
+    margin-top: 1.0rem;
+    page-break-inside: avoid;
+}
+
+.caption-code p.caption::before,
+.emlist-code p.caption::before,
+.table p.caption::before {
+    color: gray;
+    content: "▼";
+}
+
+pre.cmd {
+    font-family: "Ricty Diminished";
+    font-size: 1.0rem;
+    line-height: 1.2rem;
+    padding: 0.6rem 1.2rem;
+    background-color: #444;
+    color: white;
+    overflow: auto;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+pre.list,
+pre.emlist {
+    font-family: "Ricty Diminished";
+    font-size: 0.8rem;
+    line-height: 1.0rem;
+    padding: 0.6rem 1.2rem;
+    background-color: #eee;
+    border: solid 2px gray;
+    border-radius: 0.3rem;
+    overflow: auto;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+table {
+    margin: 0 auto 2em auto;
+    border-collapse: collapse;
+}
+
+table tr th {
+    border: 1px black solid;
+    font-size: 0.9rem;
+    padding: 0.3rem;
+}
+
+table tr td {
+    border: 1px black solid;
+    font-size: 0.9rem;
+    padding: 0.3rem;
+}
+
+p.tablecaption,
+table caption {
+    color: #666;
+    font-weight: bold;
+    text-indent: 0;
+}
+
+div.image {
+    margin: 10px 0px;
+    text-align: center;
+}
+
+/* コラム */
+
+div.column {
+    padding: 0.5em 1em;
+    margin: 2em 0;
+    background: #f0f7ff;
+    border: dashed 2px #5b8bd0;
+    /*点線*/
+}
+
+div.column p {
+    margin: 0;
+    padding: 0;
+}
+
+div.column h3 {
+    color: #505050;
+    padding: 0.5em 0.5em 0.5em 1.8em;
+    display: inline-block;
+    line-height: 1.3;
+    background: #dbebf8;
+    vertical-align: middle;
+    border-radius: 25px 0px 0px 25px;
+}
+
+div.column h3:before {
+    content: '●';
+    color: white;
+    margin-right: 8px;
+    font-size: 0.5em;
+    left: 10px;
+    top: 10px;
+}
+
+/* ブロック系の途中で改ページされるのを避ける */
+
+pre.cmd {
+    page-break-inside: avoid;
+}
+
+table {
+    page-break-inside: avoid;
+}
+
+@page {
+    /* A5で出力するが、ここをB5にしたほうがいい感じだったのでそうしている。要調整。 */
+    size: B5;
+}
+
+@page {
+    margin: 15mm;
+    margin-top: 15mm;
+}
+
+/* A5設定 */
+
+@page :left {
+    margin-left: 15mm;
+    padding: 1rem;
+}
+
+@page :right {
+    margin-right: 15mm;
+    padding: 1rem;
+}
+
+@page :left {
+    @top-left {
+        /* 本当は現在の深さ1の見出しを出したい */
+        /* かつ、sectionの1ページ目だったら出したくない */
+        content: "Re:VIEW+CSS組版環境構築";
+        /* content: string(xxx); */
+        vertical-align: bottom;
+        border-bottom: solid 1px black;
+    }
+    @top-right {
+        content: "　";
+        /* 内容ないと枠でない */
+        border-bottom: solid 1px black;
+    }
+    @top-center {
+        content: "　";
+        /* 内容ないと枠でない */
+        border-bottom: solid 1px black;
+    }
+    @bottom-center {
+        content: counter(page);
+    }
+}
+
+@page :right {
+    @top-right {
+        /* 本当は現在の深さ2の見出しを出したい */
+        /* かつ、sectionの1ページ目だったら出したくない */
+        content: "Re:VIEW+CSS組版環境構築";
+        vertical-align: bottom;
+        border-bottom: solid 1px black;
+    }
+    @top-left {
+        content: "　";
+        /* 内容ないと枠でない */
+        border-bottom: solid 1px black;
+    }
+    @top-center {
+        content: "　";
+        /* 内容ないと枠でない */
+        border-bottom: solid 1px black;
+    }
+    @bottom-center {
+        content: counter(page);
+    }
+}
+
+@page :first {
+    padding-top: 0mm;
+}
+
+@page :first {
+    @top-right {
+        content: " ";
+        border-bottom: none;
+    }
+    @top-left {
+        content: " ";
+        border-bottom: none;
+    }
+    @top-center {
+        content: " ";
+        border-bottom: none;
+    }
+}
+
+/* 吹き出し */
+
+.balloon_l,
+.balloon_r {
+    width: 100%;
+    margin: 0;
+    overflow: hidden;
+    page-break-inside: avoid;
+}
+
+.balloon_l .faceicon_l_bg,
+.balloon_r .faceicon_r_bg {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: #aeaeae 2px solid;
+}
+
+.balloon_l .faceicon_l_bg {
+    float: left;
+    margin-right: -90px;
+}
+
+.balloon_r .faceicon_r_bg {
+    float: right;
+    margin-right: 10px;
+}
+
+.balloon_l .faceicon_l,
+.balloon_r .faceicon_r {
+    clip-path: circle(30px at 30px 30px);
+}
+
+.balloon_l .faceicon_l div.image,
+.balloon_r .faceicon_r div.image {
+    margin: 0rem;
+}
+
+.balloon_l .faceicon_l {
+    float: left;
+    margin-right: -90px;
+}
+
+.balloon_r .faceicon_r {
+    float: right;
+    margin-right: -6px;
+}
+
+.balloon_l .faceicon_l img,
+.balloon_r .faceicon_r img {
+    width: 60px;
+    height: 60px;
+    margin: 3px 3px 3px 3px;
+}
+
+.balloon_l .faceicon_l img {
+    transform: scale(0.7, 1.0) translate(-3px, 0px);
+}
+
+.balloon_r .faceicon_r img {
+    transform: scale(1.3, 0.9) translate(-1px, 3px);
+}
+
+.balloon_l .chatting,
+.balloon_r .chatting {
+    width: 100%;
+}
+
+.says_l,
+.says_r {
+    line-height: 1.5em;
+    max-width: 300px;
+    font-family: "IPAexGothic";
+    display: inline-block;
+    position: relative;
+    padding: 10px 10px 10px 10px;
+    border-radius: 12px;
+}
+
+.says_l {
+    float: left;
+    margin: 5px 0px 5px 80px;
+    /* 吹き出しの背景色 */
+    background: #e6e6e6;
+}
+
+.says_l:after {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    top: 7px;
+    left: -22px;
+    border: 12px solid transparent;
+    /* 三角形の色 */
+    border-right: 12px solid #e6e6e6;
+}
+
+.says_r {
+    float: right;
+    margin: 5px 15px 5px 0px;
+    /* 吹き出しの背景色 */
+    background: #f0f0f0;
+}
+
+.says_r:after {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    top: 7px;
+    right: -22px;
+    border: 12px solid transparent;
+    /* 三角形の色 */
+    border-left: 12px solid #f0f0f0;
+}
+
+/* 改ページ */
+
+div.page-bleak-after {
+    page-break-after: always;
+}
+
+/* 問題と答えとコラム共通 */
+
+div.page-bleak-inside {
+    page-break-inside: avoid;
+}
+
+.question,
+.answer,
+.my-column {
+    display: block;
+    position: relative;
+    margin: 30px 0px 30px 0px;
+    padding: 40px 15px 15px 15px;
+    border-radius: 8px;
+    box-decoration-break: slice;
+    -webkit-box-decoration-break: slice;
+}
+
+.question .question-title,
+.answer .answer-title,
+.my-column .my-column-title {
+    font-family: "Latin Modern Mono";
+    font-weight: bold;
+    position: absolute;
+    display: block;
+    top: 0px;
+    left: 0px;
+    padding: 0px 10px 0px 27px;
+    font-size: 1.1em;
+    width: 2.1em;
+    height: 1.7em;
+    line-height: 1.7em;
+    border-radius: 4px 0px 8px 0px;
+}
+
+.question .question-title:before,
+.answer .answer-title:before,
+.my-column .my-column-title:before {
+    font-family: "FontAwesome";
+    font-size: 1.1em;
+    display: inline-block;
+    line-height: 1.8em;
+    position: absolute;
+    padding: 0em;
+    font-weight: normal;
+    width: 1.8em;
+    text-align: center;
+    height: 1.8em;
+    left: -1px;
+    top: 50%;
+    -moz-transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    border-radius: 8px;
+}
+
+.question p,
+.answer p,
+.my-column p {
+    margin: 0px;
+    padding: 0px;
+}
+
+.question pre.list,
+.question pre.emlist,
+.answer pre.list,
+.answer pre.emlist,
+.my-column pre.list,
+.my-column pre.emlist {
+    margin: 0px;
+}
+
+.question div.caption-code p.caption,
+.answer div.caption-code p.caption,
+.my-column div.caption-code p.caption {
+    margin: 10px 0px 0px 0px;
+}
+
+/* 問題 */
+
+.question {
+    border: double 4px #808080;
+}
+
+.question .question-title {
+    color: #ffffff;
+    background: #a2a2a2;
+}
+
+.question .question-title:before {
+    content: '\f059';
+    color: #ffffff;
+}
+
+/* 答え */
+
+.answer {
+    border: dotted 2px #808080;
+}
+
+.answer .answer-title {
+    color: #6d6d6d;
+    background: #ffffff;
+    border-right: dotted 2px #808080;
+    border-bottom: dotted 2px #808080;
+}
+
+.answer .answer-title:before {
+    content: '\f05d';
+    color: #6d6d6d;
+}
+
+/* コラム */
+
+.my-column {
+    padding: 20px 15px 15px 15px;
+    border: solid 2px #aaaaaa;
+    border-radius: 0px;
+    background: #eeeeee;
+}
+
+.my-column .my-column-title {
+    color: #888888;
+    width: 3.1em;
+}
+
+.my-column .my-column-title:before {
+    content: '\f0a1';
+    color: #888888;
+}
+
+/* 奥付 */
+
+table.colophon {
+    margin: 10px;
+    display: block;
+}
+
+/* サイズ */
+
+.width-000per {
+    width: 0%;
+}
+
+.width-001per {
+    width: 1%;
+}
+
+.width-002per {
+    width: 2%;
+}
+
+.width-003per {
+    width: 3%;
+}
+
+.width-004per {
+    width: 4%;
+}
+
+.width-005per {
+    width: 5%;
+}
+
+.width-006per {
+    width: 6%;
+}
+
+.width-007per {
+    width: 7%;
+}
+
+.width-008per {
+    width: 8%;
+}
+
+.width-009per {
+    width: 9%;
+}
+
+.width-010per {
+    width: 10%;
+}
+
+.width-011per {
+    width: 11%;
+}
+
+.width-012per {
+    width: 12%;
+}
+
+.width-013per {
+    width: 13%;
+}
+
+.width-014per {
+    width: 14%;
+}
+
+.width-015per {
+    width: 15%;
+}
+
+.width-016per {
+    width: 16%;
+}
+
+.width-017per {
+    width: 17%;
+}
+
+.width-018per {
+    width: 18%;
+}
+
+.width-019per {
+    width: 19%;
+}
+
+.width-020per {
+    width: 20%;
+}
+
+.width-021per {
+    width: 21%;
+}
+
+.width-022per {
+    width: 22%;
+}
+
+.width-023per {
+    width: 23%;
+}
+
+.width-024per {
+    width: 24%;
+}
+
+.width-025per {
+    width: 25%;
+}
+
+.width-026per {
+    width: 26%;
+}
+
+.width-027per {
+    width: 27%;
+}
+
+.width-028per {
+    width: 28%;
+}
+
+.width-029per {
+    width: 29%;
+}
+
+.width-030per {
+    width: 30%;
+}
+
+.width-031per {
+    width: 31%;
+}
+
+.width-032per {
+    width: 32%;
+}
+
+.width-033per {
+    width: 33%;
+}
+
+.width-034per {
+    width: 34%;
+}
+
+.width-035per {
+    width: 35%;
+}
+
+.width-036per {
+    width: 36%;
+}
+
+.width-037per {
+    width: 37%;
+}
+
+.width-038per {
+    width: 38%;
+}
+
+.width-039per {
+    width: 39%;
+}
+
+.width-040per {
+    width: 40%;
+}
+
+.width-041per {
+    width: 41%;
+}
+
+.width-042per {
+    width: 42%;
+}
+
+.width-043per {
+    width: 43%;
+}
+
+.width-044per {
+    width: 44%;
+}
+
+.width-045per {
+    width: 45%;
+}
+
+.width-046per {
+    width: 46%;
+}
+
+.width-047per {
+    width: 47%;
+}
+
+.width-048per {
+    width: 48%;
+}
+
+.width-049per {
+    width: 49%;
+}
+
+.width-050per {
+    width: 50%;
+}
+
+.width-051per {
+    width: 51%;
+}
+
+.width-052per {
+    width: 52%;
+}
+
+.width-053per {
+    width: 53%;
+}
+
+.width-054per {
+    width: 54%;
+}
+
+.width-055per {
+    width: 55%;
+}
+
+.width-056per {
+    width: 56%;
+}
+
+.width-057per {
+    width: 57%;
+}
+
+.width-058per {
+    width: 58%;
+}
+
+.width-059per {
+    width: 59%;
+}
+
+.width-060per {
+    width: 60%;
+}
+
+.width-061per {
+    width: 61%;
+}
+
+.width-062per {
+    width: 62%;
+}
+
+.width-063per {
+    width: 63%;
+}
+
+.width-064per {
+    width: 64%;
+}
+
+.width-065per {
+    width: 65%;
+}
+
+.width-066per {
+    width: 66%;
+}
+
+.width-067per {
+    width: 67%;
+}
+
+.width-068per {
+    width: 68%;
+}
+
+.width-069per {
+    width: 69%;
+}
+
+.width-070per {
+    width: 70%;
+}
+
+.width-071per {
+    width: 71%;
+}
+
+.width-072per {
+    width: 72%;
+}
+
+.width-073per {
+    width: 73%;
+}
+
+.width-074per {
+    width: 74%;
+}
+
+.width-075per {
+    width: 75%;
+}
+
+.width-076per {
+    width: 76%;
+}
+
+.width-077per {
+    width: 77%;
+}
+
+.width-078per {
+    width: 78%;
+}
+
+.width-079per {
+    width: 79%;
+}
+
+.width-080per {
+    width: 80%;
+}
+
+.width-081per {
+    width: 81%;
+}
+
+.width-082per {
+    width: 82%;
+}
+
+.width-083per {
+    width: 83%;
+}
+
+.width-084per {
+    width: 84%;
+}
+
+.width-085per {
+    width: 85%;
+}
+
+.width-086per {
+    width: 86%;
+}
+
+.width-087per {
+    width: 87%;
+}
+
+.width-088per {
+    width: 88%;
+}
+
+.width-089per {
+    width: 89%;
+}
+
+.width-090per {
+    width: 90%;
+}
+
+.width-091per {
+    width: 91%;
+}
+
+.width-092per {
+    width: 92%;
+}
+
+.width-093per {
+    width: 93%;
+}
+
+.width-094per {
+    width: 94%;
+}
+
+.width-095per {
+    width: 95%;
+}
+
+.width-096per {
+    width: 96%;
+}
+
+.width-097per {
+    width: 97%;
+}
+
+.width-098per {
+    width: 98%;
+}
+
+.width-099per {
+    width: 99%;
+}
+
+.width-100per {
+    width: 100%;
+}

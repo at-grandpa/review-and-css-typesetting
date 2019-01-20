@@ -1,0 +1,20 @@
+node_modules/
+vendor/
+.bundle/
+articles/*.pdf
+articles/*-pdf/
+
+# Graphvizとか使うと生成されるやつ
+articles/images/html/
+articles/images/latex/
+
+.DS_Store
+Thumbs.db
+
+distribute/
+
+articles/*.html
+scripts/*.js
+!scripts/pdf.js
+
+!.vscode/

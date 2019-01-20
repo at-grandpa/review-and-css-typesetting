@@ -1,0 +1,26 @@
+{
+  "filters": {
+    "comments": true
+  },
+  "plugins": [
+    "review"
+  ],
+  "rules": {
+    "preset-ja-technical-writing": true,
+    "period-in-list-item": true,
+    "prh": {
+      "rulePaths" :[
+        "./prh-rules/files/markdown.yml",
+        "./prh-rules/files/review.yml",
+        "./prh-rules/languages/ja/typo.yml",
+        "./prh-rules/media/techbooster.yml",
+        "./prh-rules/media/WEB+DB_PRESS.yml",
+        "./prh-rules/terms/android.yml",
+        "./prh-rules/terms/javascript.yml",
+        "./prh-rules/terms/review.yml",
+        "./prh-rules/terms/software.yml",
+        "./prh-rules/terms/trademark.yml",
+      ]
+    }
+  }
+}

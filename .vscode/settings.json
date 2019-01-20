@@ -1,0 +1,7 @@
+{
+	"textlint.nodePath": "./node_modules",
+	"textlint.configPath": "./.textlintrc",
+	"editor.wordWrap": "on",
+	"editor.insertSpaces": false,
+	"editor.detectIndentation": false,
+}

@@ -1,0 +1,24 @@
+{
+	"name": "review-and-css-typesetting",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/at-grandpa/review-and-css-typesetting"
+	},
+	"version": "0.0.1",
+	"description": "review-and-css-typesetting",
+	"author": "at_grandpa",
+	"license": "MIT",
+	"engines": {
+		"node": ">=6.0.0"
+	},
+	"dependencies": {
+		"http-server": "^0.11.1",
+		"puppeteer": "^1.11.0",
+		"textlint": "^11.2.1",
+		"textlint-filter-rule-comments": "^1.2.2",
+		"textlint-plugin-review": "^0.3.3",
+		"textlint-rule-period-in-list-item": "^0.2.0",
+		"textlint-rule-preset-ja-technical-writing": "^3.1.0",
+		"textlint-rule-prh": "^5.2.0"
+	}
+}
