@@ -2,6 +2,12 @@
 
 Re:VIEW+CSS組版の執筆環境を構築できます。
 
+## git clone
+
+```shell
+$ git clone -b v0.1.0 git@github.com:at-grandpa/review-and-css-typesetting.git
+```
+
 ## 説明書PDF
 
 説明書のPDFのリンクは以下です（リリースページにあるPDFのリンクです）。セットアップの方法や執筆の進め方などが記載されています。
