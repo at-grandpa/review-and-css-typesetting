@@ -2,7 +2,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: atgrandpa/review-and-css-typesetting:0.1.0
+      - image: atgrandpa/review-and-css-typesetting:0.1.1
     steps:
       - checkout
       - restore_cache:
@@ -19,6 +19,10 @@ jobs:
           name: setup bundler
           command: |
             make setup_bundler -f in_docker.mk
+      - run:
+          name: setup plantuml.jar
+          command: |
+            make setup_plantuml_jar -f in_docker.mk
       - save_cache:
           key: npm-cache-{{ checksum "package-lock.json" }}--bundler-cache-{{ checksum "Gemfile.lock" }}
           paths:
