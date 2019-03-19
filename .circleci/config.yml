@@ -19,6 +19,10 @@ jobs:
           name: setup bundler
           command: |
             make setup_bundler -f in_docker.mk
+      - run:
+          name: setup PlantUML
+          command: |
+            make setup_plant_uml -f in_docker.mk
       - save_cache:
           key: npm-cache-{{ checksum "package-lock.json" }}--bundler-cache-{{ checksum "Gemfile.lock" }}
           paths:
