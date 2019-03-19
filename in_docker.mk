@@ -10,6 +10,9 @@ setup_npm:
 setup_bundler:
 	bundle install --path vendor/bundle
 
+setup_plantuml_jar:
+	wget https://jaist.dl.sourceforge.net/project/plantuml/plantuml.jar -O ./articles/plantuml.jar
+
 # ===================================================
 # status check
 # ===================================================
@@ -35,7 +38,7 @@ init:
 	review-init articles
 
 html:
-	cd articles/ && review-epubmaker config.yml && review-epub2html book.epub | bundle exec ruby ../scripts/html-ext.rb > book.html
+	cd articles/ && review-preproc --replace *.re && review-epubmaker config.yml && review-epub2html book.epub | bundle exec ruby ../scripts/html-ext.rb > book.html
 	@$(MAKE) status_check -f in_docker.mk --no-print-directory
 
 pdf: html

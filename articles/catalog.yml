@@ -5,6 +5,7 @@ CHAPS:
   - chapter1.re
   - chapter2.re
   - chapter3.re
+  - chapter4.re
 
 POSTDEF:
   - postdef.re

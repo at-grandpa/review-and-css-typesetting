@@ -1,4 +1,4 @@
-FROM vvakame/review:3.0
+FROM vvakame/review:3.1
 
 RUN apt-get -y update || true
 RUN apt-get -y upgrade && \
@@ -48,6 +48,9 @@ RUN rm -rf /etc/apt/sources.list.d/google.list && apt-get update && apt-get -qq 
 
 # fonts
 RUN apt-get install -y fonts-ipa* fonts-ricty-diminished
+
+# java
+RUN mkdir -p /usr/share/man/man1 && apt-get install -y default-jre
 
 COPY startup.sh /startup.sh
 RUN chmod +x /startup.sh

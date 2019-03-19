@@ -3,6 +3,7 @@ vendor/
 .bundle/
 articles/*.pdf
 articles/*-pdf/
+articles/*jar
 
 # Graphvizとか使うと生成されるやつ
 articles/images/html/

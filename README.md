@@ -5,14 +5,14 @@ Re:VIEW+CSS組版の執筆環境を構築できます。
 ## git clone
 
 ```shell
-$ git clone -b v0.1.0 git@github.com:at-grandpa/review-and-css-typesetting.git
+$ git clone -b v0.1.1 git@github.com:at-grandpa/review-and-css-typesetting.git
 ```
 
 ## 説明書PDF
 
 説明書のPDFのリンクは以下です（リリースページにあるPDFのリンクです）。セットアップの方法や執筆の進め方などが記載されています。
 
-[説明書PDF](https://github.com/at-grandpa/review-and-css-typesetting/releases/download/v0.1.0/book.pdf)
+[説明書PDF](https://github.com/at-grandpa/review-and-css-typesetting/releases/download/v0.1.1/book.pdf)
 
 このPDFはサンプルPDFの役割も果たしています。このリポジトリ直下で `make setup` と `make pdf` を実行すれば、`./articles/book.pdf` に同様のものが出力されます。 実際にCSS組版を適用したものになっているので、試行錯誤の材料としてご利用ください。
 

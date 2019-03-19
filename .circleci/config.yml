@@ -2,7 +2,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: atgrandpa/review-and-css-typesetting:0.1.0
+      - image: atgrandpa/review-and-css-typesetting:0.1.1
     steps:
       - checkout
       - restore_cache:

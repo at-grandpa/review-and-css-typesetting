@@ -17,7 +17,7 @@ args: ## デフォルトの変数を表示する
 # ===================================================
 # Docker
 # ===================================================
-setup: build up docker/setup_npm docker/setup_bundler ## docker環境をセットアップする
+setup: build up docker/setup_npm docker/setup_bundler docker/setup_plantuml_jar ## docker環境をセットアップする
 
 build: ## dockerイメージをbuildする
 	$(DOCKER_COMPOSE) build \
