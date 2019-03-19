@@ -73,7 +73,7 @@ $ make help
 
 ## ライブラリのバージョン
 
-* `Re:VIEW` : 3.0.0
+* `Re:VIEW` : 3.1
 * `Vivliostyle` : 2018.12.103
 
 ## circleci
