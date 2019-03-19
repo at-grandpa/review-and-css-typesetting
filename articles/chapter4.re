@@ -45,7 +45,7 @@ foo.display("Hello!!") # => Hello!!
 == PlantUML
 
 Re:VIEWは @<code>{glaph} 命令でPlantUMLを描画できます。
-以下のコードを @<code>{glaph} 命令に書くことで、以下のような図を埋め込むことができます。
+次のコードを @<code>{glaph} 命令に書くことで、次のような図を埋め込むことができます。
 
 //list[sample_uml_code][PlantUMLのコード]{
 @startuml
