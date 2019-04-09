@@ -1,87 +1,121 @@
 # encoding: utf-8
 ReVIEW::Compiler.defblock :imagetalkl, 1..2
 ReVIEW::Compiler.defblock :imagetalkr, 1..2
+
+# for backward compatibility
 ReVIEW::Compiler.defsingle :mycolumnbegin, 0
 ReVIEW::Compiler.defsingle :mycolumnend, 0
 ReVIEW::Compiler.defsingle :questionbegin, 0
 ReVIEW::Compiler.defsingle :questionend, 0
 ReVIEW::Compiler.defsingle :answerbegin, 0
 ReVIEW::Compiler.defsingle :answerend, 0
+
 ReVIEW::Compiler.defsingle :pagebreakforce, 0
 
-class ReVIEW::HTMLBuilder
+module HTMLBuilderOverride
   def imagetalkl(lines, img_id, metric=nil)
-    body = lines.map{|line| line + "<br />"}
+    body = lines.map {|line| "#{line}<br />"}.join
 
-    puts "<!--吹き出しはじまり-->"
-    puts "<div class=\"balloon_l\">"
-    puts "  <div class=\"faceicon_l_bg\">"
-    puts "    <div class=\"faceicon_l\">"
-    indepimage('', img_id)
-    puts "    </div>"
-    puts "  </div>"
-    puts "  <div class=\"chatting\">"
-    puts "    <div class=\"says_l\">"
-    puts body
-    puts "    </div>"
-    puts "  </div>"
-    puts "</div>"
-    puts "<!--吹き出し終わり-->"
+    puts <<EOT
+<!--吹き出しはじまり-->
+<div class="balloon_l">
+  <div class="faceicon_l_bg">
+    <div class="faceicon_l">
+EOT
+    indepimage('', img_id, '', metric)
+    puts <<EOT
+    </div>
+  </div>
+  <div class="chatting">
+    <div class="says_l">
+#{body}
+    </div>
+  </div>
+</div>
+<!--吹き出し終わり-->
+EOT
   end
 
   def imagetalkr(lines, img_id, metric=nil)
-    body = lines.map{|line| line + "<br />"}
+    body = lines.map {|line| "#{line}<br />"}.join
 
-    puts "<!--吹き出しはじまり-->"
-    puts "<div class=\"balloon_r\">"
-    puts "  <div class=\"faceicon_r_bg\">"
-    puts "    <div class=\"faceicon_r\">"
+    puts <<EOT
+<!--吹き出しはじまり-->
+<div class="balloon_r">
+  <div class="faceicon_r_bg">
+    <div class="faceicon_r">
+EOT
     indepimage('', img_id, '', metric)
-    puts "    </div>"
-    puts "  </div>"
-    puts "  <div class=\"chatting\">"
-    puts "    <div class=\"says_r\">"
-    puts body
-    puts "    </div>"
-    puts "  </div>"
-    puts "</div>"
-    puts "<!--吹き出し終わり-->"
+    puts <<EOT
+    </div>
+  </div>
+  <div class="chatting">
+    <div class="says_r">
+#{body}
+    </div>
+  </div>
+</div>
+<!--吹き出し終わり-->
+EOT
   end
 
-  def mycolumnbegin
-    puts "<!--コラムはじまり-->"
-    puts "<div class=\"my-column\">"
-    puts "<span class=\"my-column-title\">コラム</span>"
+  def mycolumn_begin(_level=nil, _label=nil, caption='コラム')
+    puts <<EOT
+<!--コラムはじまり-->
+<div class="my-column">
+<span class="my-column-title">#{caption}</span>
+EOT
   end
 
-  def mycolumnend
-    puts "</div>"
-    puts "<!--コラムおわり-->"
+  def mycolumn_end(_level=nil)
+    puts <<EOT
+</div>
+<!--コラムおわり-->
+EOT
   end
 
-  def questionbegin
-    puts "<!--問題はじまり-->"
-    puts "<div class=\"question\">"
-    puts "<span class=\"question-title\">問題</span>"
+  def question_begin(_level=nil, _label=nil, caption='')
+    puts <<EOT
+<!--問題はじまり-->
+<div class="question">
+<span class="question-title">問題#{caption}</span>
+EOT
   end
 
-  def questionend
-    puts "</div>"
-    puts "<!--問題おわり-->"
+  def question_end(_level=nil)
+    puts <<EOT
+</div>
+<!--問題おわり-->
+EOT
   end
 
-  def answerbegin
-    puts "<!--答えはじまり-->"
-    puts "<div class=\"answer\">"
-    puts "<span class=\"answer-title\">答え</span>"
+  def answer_begin(_level=nil, _label=nil, caption='')
+    puts <<EOT
+<!--答えはじまり-->
+<div class="answer">
+<span class="answer-title">答え#{caption}</span>
+EOT
   end
 
-  def answerend
-    puts "</div>"
-    puts "<!--答えおわり-->"
+  def answer_end(_level=nil)
+    puts <<EOT
+</div>
+<!--答えおわり-->
+EOT
   end
+
+  alias_method :mycolumnbegin, :mycolumn_begin
+  alias_method :mycolumnend, :mycolumn_end
+  alias_method :questionbegin, :question_begin
+  alias_method :questionend, :question_end
+  alias_method :answerbegin, :answer_begin
+  alias_method :answerend, :answer_end
 
   def pagebreakforce
-    puts "<div class=\"page-bleak-after\"></div>"
+    puts %Q(<div class="page-bleak-after"></div>)
   end
+end
+
+class ReVIEW::HTMLBuilder
+  prepend HTMLBuilderOverride
 end
