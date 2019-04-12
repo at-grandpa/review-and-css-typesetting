@@ -106,7 +106,7 @@ $ make help
     login      dockerコンテナ内にログインする
     init       ./article配下を削除して、review-initで./articlesを再生成する
     html       htmlを生成する (./articles/book.html)
-    pdf        PDFを生成する (default: ./articles.book.pdf) (出力先変更: make pdf PDF=./hoge.pdf)
+    pdf        PDFを生成する (default: ./articles/book.pdf) (出力先変更: make pdf PDF=./hoge.pdf)
     browser    ブラウザで表示する (vivliostyle経由)
     lint       textlint, prhでlintをかける
     lint/fix   prhの指摘点を自動修正する

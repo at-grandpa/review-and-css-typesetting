@@ -53,7 +53,7 @@ init: ## ./article配下を削除して、review-initで./articlesを再生成�
 html: ## htmlを生成する (./articles/book.html)
 	$(MAKE) docker/html
 
-pdf: ## PDFを生成する (default: ./articles.book.pdf) (出力先変更: make pdf PDF=./hoge.pdf)
+pdf: ## PDFを生成する (default: ./articles/book.pdf) (出力先変更: make pdf PDF=./hoge.pdf)
 	$(DOCKER_COMPOSE) exec review /bin/bash -ci "make pdf -f in_docker.mk PDF=$(PDF) HTML_URL=$(HTML_URL) PAGE_FORMAT=$(PAGE_FORMAT)"
 	open $(PDF)
 
