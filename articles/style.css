@@ -443,16 +443,19 @@ table {
         vertical-align: bottom;
         border-bottom: solid 1px black;
     }
+
     @top-right {
         content: "　";
         /* 内容ないと枠でない */
         border-bottom: solid 1px black;
     }
+
     @top-center {
         content: "　";
         /* 内容ないと枠でない */
         border-bottom: solid 1px black;
     }
+
     @bottom-center {
         content: counter(page);
     }
@@ -466,16 +469,19 @@ table {
         vertical-align: bottom;
         border-bottom: solid 1px black;
     }
+
     @top-left {
         content: "　";
         /* 内容ないと枠でない */
         border-bottom: solid 1px black;
     }
+
     @top-center {
         content: "　";
         /* 内容ないと枠でない */
         border-bottom: solid 1px black;
     }
+
     @bottom-center {
         content: counter(page);
     }
@@ -490,10 +496,12 @@ table {
         content: " ";
         border-bottom: none;
     }
+
     @top-left {
         content: " ";
         border-bottom: none;
     }
+
     @top-center {
         content: " ";
         border-bottom: none;
@@ -650,7 +658,7 @@ div.page-bleak-inside {
     left: 0px;
     padding: 0px 10px 0px 27px;
     font-size: 1.1em;
-    width: 2.1em;
+    width: auto;
     height: 1.7em;
     line-height: 1.7em;
     border-radius: 4px 0px 8px 0px;

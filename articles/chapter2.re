@@ -65,49 +65,60 @@ html:
 
 == 「コラム」や「問題」「答え」のデザイン
 
-「コラム」や「問題」「答え」のデザインは、こちらはRe:VIEWの公式の拡張 @<code>{./articles/review-ext.rb} を使っています。
-次の独自コマンドを作成し、 @<code>{.re} ファイルで使用しています。
-
- * @<code>{mycolumnbegin（my_column_begin）}
- * @<code>{mycolumnend（my_column_end）}
-
-begin-end の間に記載された内容が、コラムになります。
+「コラム」や「問題」「答え」のデザインは、Re:VIEWの公式の拡張 @<code>{./articles/review-ext.rb} を使っています。
 拡張に関しては、次の「Re:VIEW のモンキーパッチによる拡張の基本」と @<code>{./articles/review-ext.rb} を参考にしてください。
 
  * Re:VIEW のモンキーパッチによる拡張の基本
  ** https://review-knowledge-ja.readthedocs.io/ja/latest/reviewext/review-ext-basic.html
 
-独自コマンドによって生成されたhtmlに対してCSSを適用しています。
+拡張したコマンドによって生成されたhtmlに対し、CSSを適用しています。
 もちろん、色やマージンなどの微調整も可能です。
 
-コラムは次のような形です。
+===[mycolumn] コラム
 
+//emlist[]{
+===[mycolumn] コラム
 
-//mycolumnbegin
+こんな感じでコラムを書いています。
+
+===[/mycolumn]
+//}
 
 ==== 見出しも書けます
 
-見出しが書けていますね。
+見出しも書けていますね。
+
+===[/mycolumn]
+
+===[question] 問題
+
+これは問題です。以下のように書いています。
 
 //emlist[]{
-<?php
-echo "リスト表記もできます";
+===[question] 問題だよ
+
+これは問題です。以下のように書いています。
+
+===[/question]
 //}
 
-//mycolumnend
+キャプションの文字列は「問題だよ」のように自由に設定できます。
 
-以前の技術書典で頒布した「におうコードの問題集」では、「問題」と「答え」の項目があります。
+===[/question]
 
-//questionbegin
-これは問題です。
-//questionend
+===[answer] 答えだよ
 
-//answerbegin
-これは答えです。
-//answerend
+これは答えです。「問題」と同様、キャプションの文字列は自由に設定できます。
 
+//emlist[]{
+===[answer] 答えだよ
 
-これらはもちろんCSSで実現させているので、色やマージン、その他もろもろ自由に編集可能です。
+これは答えです。「問題」と同様、キャプションの文字列は自由に設定できます。
+
+===[/answer]
+//}
+
+===[/answer]
 
 //pagebreakforce
 
