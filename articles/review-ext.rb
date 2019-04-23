@@ -74,11 +74,11 @@ EOT
 EOT
   end
 
-  def question_begin(_level=nil, _label=nil, caption='')
+  def question_begin(_level=nil, _label=nil, caption='問題')
     puts <<EOT
 <!--問題はじまり-->
 <div class="question">
-<span class="question-title">問題#{caption}</span>
+<span class="question-title">#{caption}</span>
 EOT
   end
 
@@ -89,11 +89,11 @@ EOT
 EOT
   end
 
-  def answer_begin(_level=nil, _label=nil, caption='')
+  def answer_begin(_level=nil, _label=nil, caption='答え')
     puts <<EOT
 <!--答えはじまり-->
 <div class="answer">
-<span class="answer-title">答え#{caption}</span>
+<span class="answer-title">#{caption}</span>
 EOT
   end
 
