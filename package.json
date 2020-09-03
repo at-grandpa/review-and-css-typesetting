@@ -13,7 +13,7 @@
 	},
 	"dependencies": {
 		"http-server": "^0.11.1",
-		"puppeteer": "^1.11.0",
+		"puppeteer": "^1.13.0",
 		"textlint": "^11.2.1",
 		"textlint-filter-rule-comments": "^1.2.2",
 		"textlint-plugin-review": "^0.3.3",
