@@ -20,7 +20,7 @@
 		"textlint-rule-period-in-list-item": "^0.2.0",
 		"textlint-rule-preset-ja-technical-writing": "^3.1.0",
 		"textlint-rule-prh": "^5.2.0",
-		"ecstatic": ">=3.3.2",
+		"ecstatic": ">=4.1.4",
 		"diff": ">=3.5.0",
 		"js-yaml": ">=3.13.1"
 	}
