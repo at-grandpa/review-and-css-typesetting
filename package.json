@@ -12,7 +12,7 @@
 		"node": ">=6.0.0"
 	},
 	"dependencies": {
-		"http-server": "^0.11.1",
+		"http-server": "^0.11.2",
 		"puppeteer": "^1.11.0",
 		"textlint": "^11.2.1",
 		"textlint-filter-rule-comments": "^1.2.2",
